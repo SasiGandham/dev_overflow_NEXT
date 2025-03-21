@@ -9,6 +9,7 @@ import {
 } from '@clerk/nextjs'
 import { Inter, Space_Grotesk } from 'next/font/google'
 import './globals.css'
+import { ThemeProvider } from '@/context/ThemeProvider'
 
 
 const inter = Inter({
@@ -55,7 +56,9 @@ export default function RootLayout({
               <UserButton />
             </SignedIn>
           </header>
-          {children}
+          <ThemeProvider>
+              {children}
+          </ThemeProvider>
         </body>
       </html>
     </ClerkProvider>
